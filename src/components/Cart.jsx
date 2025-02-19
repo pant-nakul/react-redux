@@ -1,23 +1,24 @@
 import React from 'react'
-import {useCart} from "../context/CartContext.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {getItemsSelector, removeFromCart} from "../redux/slices/cartSlice.js";
 
 const Cart = () => {
-    // const total = cart.items.reduce((total, item) => total + item.price, 0);
+    const items = useSelector(getItemsSelector);
+    console.log(items)
+    const total = items.reduce((total, item) => total + item.price, 0);
+    const dispatch = useDispatch();
     return (
         <div>
             <h1>Cart</h1>
-            <li key={1}> Item - Price |
-                <button >Remove from cart</button></li>
+            <h2>Total Items : {items.length || 0}</h2>
+            {items.map((item) => (
+                <>
+                    <li key={1}> {item.name} - {item.price} |
+                        <button onClick={() => (dispatch(removeFromCart(item)))}>Remove from cart</button></li>
+                </>
+            ))}
 
-            {/*
-            {cart.items.map((item, i) => {
-                return (<li key={i}> {item.name} - ${item.price} |
-                    <button onClick={() => cart.removeItems(item)}>Remove from cart</button></li>)
-            })}
-*/}
-
-
-            <h5> Total Bill : ${"total"}</h5>
+            <h5> Total Bill : ${total}</h5>
         </div>
     )
 }

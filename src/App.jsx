@@ -11,12 +11,12 @@ function App() {
         <div className="App">
             <Cart/>
             <h1>Items</h1>
-            <Item name={"MacBook Pro"} price={100000} />
-            <Item name={"MacBook Air"} price={80000} />
-            <Item name={"iMac"} price={200000} />
-            <Item name={"iPhone"} price={75000} />
-            <Item name={"iPad"} price={50000} />
-            <Item name={"Air Pods"} price={22000} />
+            <Item id={1} name={"MacBook Pro"} price={100000} />
+            <Item id={2} name={"MacBook Air"} price={80000} />
+            <Item id={3} name={"iMac"} price={200000} />
+            <Item id={4} name={"iPhone"} price={75000} />
+            <Item id={5} name={"iPad"} price={50000} />
+            <Item id={6} name={"Air Pods"} price={22000} />
 
 
 
