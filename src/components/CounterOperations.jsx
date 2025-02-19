@@ -1,14 +1,13 @@
 import React from 'react'
-import {useContext} from "react";
-import {CounterContext} from "../context/CounterContext.jsx";
+import {useDispatch} from "react-redux";
 
 const CounterOperations = () => {
-    const counterContext = useContext(CounterContext);
+    const dispatch = useDispatch();
     return (
         <div>
 
-            <button onClick={() => counterContext.setCount(counterContext.count + 1)}>Increment</button>
-            <button onClick={() => counterContext.setCount(counterContext.count - 1)}>Decrement</button>
+            <button onClick={() => dispatch({type: "INCREMENT"})}>Increment</button>
+            <button onClick={() => dispatch({type: "DECREMENT"})}>Decrement</button>
 
         </div>
     )
